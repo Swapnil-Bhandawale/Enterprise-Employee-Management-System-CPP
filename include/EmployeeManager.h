@@ -4,6 +4,7 @@
 
 #include "Employee.h"
 #include <vector>
+#include <map>
 
 using namespace std;
 
@@ -12,6 +13,7 @@ class EmployeeManager
     private :
 
     vector <Employee>employees;
+    map<string , int > departmentCount;
 
     public :
     void addEmployee (Employee employee);
@@ -21,6 +23,7 @@ class EmployeeManager
 
     bool updateEmployee(int id , string name , string department, double salary );
     bool deleteEmployee(int id);
+    void displayDepartmentCount();
 
 };
 #endif

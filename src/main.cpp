@@ -83,6 +83,38 @@ cout <<endl ;
 cout <<" ==============Employee After delete =====================" <<endl;
 manager.displayAllEmployee();
 
+
+cout << endl;
+
+cout <<" ==========================  UPDATE EMPLOYEE ============================="<<endl;
+
+bool updated = manager.updateEmployee(
+    102,
+    "Amit patil",
+    "IT",
+    600000
+);
+
+if(updated)
+{
+
+    cout <<"Employee Updated successfully ..."<<endl;
+
+}
+else
+{
+    cout<<" Employee not found"<<endl;
+}
+
+Employee* updateEmployee = manager.searchEmployeeById(102);
+
+if(updateEmployee != nullptr)
+{
+    updateEmployee->display();
+}
+
+manager.displayDepartmentCount();
+
     return 0;
 
     

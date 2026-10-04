@@ -4,10 +4,16 @@
 
 using namespace std;
 
-void EmployeeManager :: addEmployee(Employee employee)
+void EmployeeManager ::addEmployee(Employee employee)
 {
     employees.push_back(employee);
+    departmentCount[employee.getDepartment()]++;
 }
+
+
+
+
+
 
 void EmployeeManager :: displayAllEmployee()
 {
@@ -44,4 +50,34 @@ bool EmployeeManager :: deleteEmployee(int id)
 
     }
     return false;
+}
+
+bool EmployeeManager ::updateEmployee(int id , string name, string department, double salary)
+{
+    Employee* employee = searchEmployeeById(id);
+
+    if(employee != nullptr)
+    {
+        employee->setName(name);
+        employee->setDepartment(department);
+        employee->setSalary(salary);
+
+        return true;
+
+    }
+    return false;
+
+}
+
+void EmployeeManager ::displayDepartmentCount()
+{
+    cout <<endl;
+
+    cout <<" =============   DEPARTMENT WISE EMPLOYEE COUNT  ==================== "<<endl;
+
+    for(auto department : departmentCount)
+    {
+        cout <<" Department  : "<<department.first 
+        << " |  Employee  : "<< department.second <<endl;
+    }
 }
